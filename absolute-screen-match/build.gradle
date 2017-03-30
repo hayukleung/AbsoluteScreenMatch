@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+
+ext {
+  bintrayRepo = 'maven'
+  bintrayName = 'AbsoluteScreenMatch'
+
+  publishedGroupId = 'com.github.hayukleung'
+  libraryName = 'AbsoluteScreenMatch'
+  artifact = 'absolute-screen-match'
+
+  libraryDescription = 'An Android Absolute Screen Matching Library.'
+
+  siteUrl = 'https://github.com/hayukleung/AbsoluteScreenMatch'
+  gitUrl = 'https://github.com/hayukleung/AbsoluteScreenMatch.git'
+
+  libraryVersion = '1.0.0'
+
+  developerId = 'hayukleung'
+  developerName = 'Hayuk Leung'
+  developerEmail = 'hayukleung@gmail.com'
+
+  licenseName = 'The Apache Software License, Version 2.0'
+  licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+  allLicenses = ["Apache-2.0"]
+}
+
+android {
+  compileSdkVersion 25
+  buildToolsVersion "25.0.2"
+  defaultConfig {
+    minSdkVersion 14
+    targetSdkVersion 25
+    versionCode 1
+    versionName "1.0"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+apply from: rootProject.getRootDir().getAbsolutePath() + "/maven.gradle"
+apply from: rootProject.getRootDir().getAbsolutePath() + "/bintray.gradle"
